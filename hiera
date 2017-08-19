@@ -1,0 +1,82 @@
+puppet hiera
+	Each env gets it's own hiera file
+
+
+
+puppet lookup --module 
+
+
+Concepts
+What is lookup?
+function that uses hiera to retrieve values stored under a given key
+
+
+Layers
+a tier in which keyed values can be stored
+Hierarchical in that hiera searches certain layers before others
+
+module layer
+hiera data stored within a module's data directory
+
+environment
+	a group of puppet agent nodes
+	allows different usage of the same module in different environments
+
+	how?
+		create an environments folder under code/
+
+		for each environment, create a folder under code/environments
+
+		in each environment, create a modules and a manifests folder		
+
+	contains a modules directory that becomes part of the environment's default module path
+
+	may contain a hiera.yaml file 
+
+	contains a manifests directory that will contain the env's default main manifest file
+
+
+
+$environment
+indicates the environment the current puppet run is running as
+
+
+
+
+environment layer
+
+
+Tiers
+TODO
+
+lookup_options
+TODO
+
+merge behavior
+strategy for combining values in cases where a key exists in several data stores
+
+key
+A key under which a value can be stored
+
+
+data source
+A place where keyed values can be stored and retrieved by hiera
+
+
+data provider
+TODO
+
+module data
+data used in a module by means of resolution o a key / variable
+module data is indicated by means of variables
+
+
+params.pp pattern
+
+
+
+Examples
+puppet lookup --explain foo
+
+reference
+https://docs.puppet.com/puppet/5.0/hiera_use_function.html
