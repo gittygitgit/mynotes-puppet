@@ -1,0 +1,22 @@
+Reusing code
+Code is made available for reuse by placing it in a class.
+
+
+Code is reused in one of several ways
+include
+class
+...
+
+
+Paramaters to reusable code
+Parameterization is handled differently depending on how code is reused.
+If reused via include, the parameters are resolved using hiera
+If reused via class, the parameters are resolved using both passed in parms and hiera.
+
+
+Class-based reused is limiting in that a class can only be reused once in a single catalog.
+Classes can be included any number of times.
+
+
+
+Including a class 

@@ -1,0 +1,23 @@
+variables
+	All variables are constants in puppet
+
+	qualified variable names
+		allows variables to be accessed when out of scope
+
+		::toplevelvar
+
+		class::var-name
+
+scope
+	provides a sandbox within which variables are accessible
+
+	variables may only be accessed from a given scope if declared in it's parent scope or the current one, or if referenced using a qualified name
+
+
+	top-level scope
+
+		node-scope
+
+			class-scope
+
+				child-class-scope

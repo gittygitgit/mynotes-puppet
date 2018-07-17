@@ -1,0 +1,7 @@
+Why parameters?
+For variables that can't be obtained from facts
+
+Why parameters when it seems like hiera could provide parms for everything?
+Hiera may not be available
+
+Should everything that's eligible for hiera lookup be declared as a class parameter?

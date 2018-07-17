@@ -1,0 +1,53 @@
+codedir
+
+	non-root 
+	~/.puppetlabs/etc/code
+
+	root
+	/etc/puppetlabs/code
+
+	contents
+	./modules
+	./environments
+
+	puppet code
+
+	puppet data
+
+
+confdir
+	root
+	/etc/puppetlabs/puppet
+
+	non-root
+	~/.puppetlabs/etc/puppet
+
+configuration files
+	puppet.conf — Puppet’s main config file. (Any node.)
+	hiera.yaml — global configuration for the Hiera data lookup system. Note that environments and modules can have their own hiera.yaml files. (Master, or standalone nodes running Puppet apply.)
+
+
+Main manifest
+	Starting point of any puppet run
+
+	puppet apply requires a manifest be passed manually
+		doesn't automatically use an environment's manifest
+
+	providing a directory as the main manifest causes all *.pp files to be combined and run as one, in alphabetical order
+
+Module path
+	dictates from where puppet loads modules
+
+	Most code run by puppet comes from modules
+
+	set based on the current node's environment
+
+	by default, set to include active environment's modules directory
+
+	<ACTIVE ENVIRONMENT'S MODULES DIRECTORY>:$codedir/modules:/opt/puppetlabs/puppet/modules
+
+	/opt/puppetlabs/puppet/cache [chef:production] $ puppet config print modulepath --environment dev
+		/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet/util.rb:49: warning: Insecure world writable dir /Users/grudkowm in PATH, mode 040777
+		/Users/grudkowm/.puppetlabs/etc/code/environments/dev/modules:/Users/grudkowm/.puppetlabs/etc/code/modules:/opt/puppetlabs/puppet/modules
+
+cache dir

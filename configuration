@@ -1,0 +1,31 @@
+settings?
+	There are many different settings
+
+	Typically, settings refers to puppet main settings
+
+	represented by puppet.conf
+
+	can typically be set on command line as part of various puppet commands
+
+	settings that require complex data structure are stored in separate files
+
+		only simple props can be stored in puppet.conf
+
+
+	main settings
+
+	location
+
+		root
+		/etc/puppetlabs/puppet
+
+		non-root
+		~/.puppetlabs/etc/puppet
+
+What goes in puppet.conf?
+
+
+
+debugging
+
+	puppet config print

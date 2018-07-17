@@ -1,0 +1,15 @@
+Declaring a class?
+
+
+
+
+resource-like behavior
+Requires that a class only be declared once
+
+include-like behavior
+
+
+resource-like declaration
+uses the class pseudo-resource type
+follows resource-like behavior
+

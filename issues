@@ -1,0 +1,28 @@
+ISSUE:
+~/repos/monitoring [chef:production] $ puppet module install puppetlabs-java --version 2.1.0 --verbose --debug
+Debug: Runtime environment: puppet_version=4.9.4, ruby_version=2.1.9, run_mode=user, default_encoding=UTF-8
+Notice: Preparing to install into /Users/grudkowm/.puppetlabs/etc/code/modules ...
+Warning: jbossas (/Users/grudkowm/.puppetlabs/etc/code/modules/jbossas) has an invalid version number (). The version has been set to 0.0.0. If you are the maintainer for this module, please update the metadata.json with a valid Semantic Version (http://semver.org).
+Notice: Downloading from https://forgeapi.puppet.com ...
+Debug: HTTP GET https://forgeapi.puppet.com/v3/releases?module=puppetlabs-java
+Debug: Evicting cache entry for environment 'production'
+Debug: Caching environment 'production' (ttl = 0 sec)
+Debug: Failed to load library 'pe_license' for feature 'pe_license'
+Error: Could not connect to https://forgeapi.puppet.com
+  There was a network communications problem
+    The error we caught said 'getaddrinfo: nodename nor servname provided, or not known'
+    Check your network connection and try again
+
+
+RESOLUTION
+When using Puppet behind a proxy, you have to configure the proxy in puppet.conf user section:
+https://ask.puppetlabs.com/question/865/how-do-i-setup-puppet-to-access-puppetforge-modules-thru-a-proxy/
+
+[user]
+    http_proxy_host='localhost'
+    http_proxy_port=3128
+    http_proxy_user='grudkowm'
+    http_proxy_password='F%40ll2017%3F%3F%3F'
+
+
+---

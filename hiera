@@ -6,6 +6,36 @@ puppet hiera
 puppet lookup --module 
 
 
+Keys
+
+	format
+	double-colon
+		variables that start w/ double-colon are top-level
+		factor facts are located in top-level
+
+	automatic parameter lookup
+		keys are declared in yaml as myclass::parm1
+
+		referenced in class as
+			class myclass($parm1 = "default") {
+
+			}
+
+	lookup function
+		lookup (<name>, ...)
+
+
+yaml
+	hiera.yaml files
+		top-level keys start with a colon
+
+
+
+And puppet...
+	puppet copies hiera config from the host to the guest when running
+
+	
+
 Concepts
 What is lookup?
 function that uses hiera to retrieve values stored under a given key
@@ -16,7 +46,11 @@ a tier in which keyed values can be stored
 Hierarchical in that hiera searches certain layers before others
 
 module layer
-hiera data stored within a module's data directory
+	hiera data stored within a module's data directory
+
+	would contain a hiera.yaml file
+
+	data would be stored under the data folder
 
 environment
 	a group of puppet agent nodes
@@ -77,6 +111,17 @@ params.pp pattern
 
 Examples
 puppet lookup --explain foo
+puppet lookup --explain --environment dev foo
+
+puppet lookup --explain --environment dev --node nasdaq.hdgemdev.com.yaml foo
+
+
+Problems
+	Undefined variable 'environment'
+
+	Module data provider for module "helpdesk_legacy" not found
+	Make sure you have a hiera.yaml file in the module
+
 
 reference
 https://docs.puppet.com/puppet/5.0/hiera_use_function.html

@@ -1,0 +1,55 @@
+current node
+The machine a puppet catalog is being applied to
+
+node definition
+block of puppet code that will only be included in matching nodes' catalogs
+located in the main manifest file 
+
+
+main manifest
+the entry point from which puppet starts compiling the catalog
+typically, if not always, called site.pp
+In non-root execution, ~/.puppetlabs/etc/code/environments/[env]/manifests/site.pp
+
+node definition
+
+
+
+catalog
+The set of all work to be applied to a node
+
+manifest
+
+
+module
+
+class
+named block of puppet code
+stored in modules
+not applied until invoked by name
+classes do not by themselves add anything to the catalog
+A class must be declared in order to add stuff to the catalog
+classes have parameters
+resources in a class can only added to a catalog once per compilation
+classes are singletons
+
+
+class declaration
+adds all a class' resources to the catalog
+may be performed in a variety of locations
+- in top-level site-manifest
+- in node definition
+- in other classes
+- in defined types
+
+
+
+resource declaration
+located in the main manifest file 
+
+type
+
+
+class vs module
+
+

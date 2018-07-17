@@ -1,0 +1,27 @@
+Why scope?
+To limit the relevancy of stuff to well-defined contexts
+
+What is scope-dependent?
+- variables
+- 
+
+local scope
+code inside a class def, defined type
+var's and defaults declared in local are only available to that scope or its children
+
+parent scope
+
+node scope
+code inside a node-definition
+variables and resources declared at node scope are availabe everywhere but in top-level
+
+top scope
+code outside any node definition, class definition, type definition.
+
+
+
+precedence
+Any variable or default present in multiple scopes will have the one most local end up being used
+code inside a class def, defined type
+var's and defaults declared in local are only available to that scope or its children
+
